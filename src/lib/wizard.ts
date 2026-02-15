@@ -69,22 +69,15 @@ export class Wizard {
 
   private printBanner(): void {
     const W = 65;
-    // Modern ASCII art with the new name
-    const ascii = [
-      '  ██████╗ ███████╗██╗   ██╗██╗  ██╗██╗   ██╗',
-      '  ██╔══██╗██╔════╝██║   ██║██║ ██╔╝╚██╗ ██╔╝',
-      '  ██║  ██║█████╗  ██║   ██║█████╔╝  ╚████╔╝ ',
-      '  ██║  ██║██╔══╝  ██║   ██║██╔═██╗   ╚██╔╝  ',
-      '  ██████╔╝███████╗╚██████╔╝██║  ██╗   ██║   ',
-      '  ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ',
-    ];
+    // Simple CCS text banner
     const lines = [
       borderLine('╔', '╗', '═', W),
       contentLine('', '║', '║', W),
-      ...ascii.map(a => contentLine(a, '║', '║', W)),
       contentLine('', '║', '║', W),
-      contentLine('Claude Code Provider Switcher', '║', '║', W),
+      contentLine('     CCS - Claude Code Switcher', '║', '║', W),
+      contentLine('', '║', '║', W),
       contentLine(i18n.t('wizard.banner_subtitle'), '║', '║', W),
+      contentLine('', '║', '║', W),
       borderLine('╚', '╝', '═', W),
     ];
     console.log(theme.primaryBold('\n' + lines.join('\n')));
