@@ -68,23 +68,13 @@ export class Wizard {
   }
 
   private printBanner(): void {
-    const W = 70;
-    // ASCII art banner - CCS letters
-    const ascii = [
-      '   █████╗  ██████╗ ██████╗███████╗██████╗ ███████╗██╗   ██╗',
-      '  ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝',
-      '  ███████║██║     ██║     █████╗  ██████╔╝█████╗   ╚████╔╝ ',
-      '  ██╔══██║██║     ██║     ██╔══╝  ██╔══██╗██╔══╝    ╚██╔╝  ',
-      '  ██║  ██║╚██████╗╚██████╗███████╗██║  ██║███████╗   ██║   ',
-      '  ╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝   ',
-    ];
+    const W = 40;
     const lines = [
       borderLine('╔', '╗', '═', W),
       contentLine('', '║', '║', W),
-      ...ascii.map(a => contentLine(a, '║', '║', W)),
+      contentLine('  CCS  ', '║', '║', W),
+      contentLine('Claude Code Switcher', '║', '║', W),
       contentLine('', '║', '║', W),
-      contentLine('Claude Code Provider Switcher', '║', '║', W),
-      contentLine(i18n.t('wizard.banner_subtitle'), '║', '║', W),
       borderLine('╚', '╝', '═', W),
     ];
     console.log(theme.primaryBold('\n' + lines.join('\n')));
