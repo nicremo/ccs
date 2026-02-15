@@ -1,11 +1,10 @@
 {
-  "name": "@nicremo/coding-helper",
+  "name": "@nicremo/ccs",
   "version": "1.0.0",
-  "description": "Multi-provider coding helper for Claude Code - configure Z.AI/GLM, MiniMax, and Kimi models",
+  "description": "Claude Code Provider Switcher - Configure MiniMax, Kimi, and GLM models for Claude Code",
   "main": "dist/cli.js",
   "bin": {
-    "coding-helper": "dist/cli.js",
-    "cchelper": "dist/cli.js"
+    "ccs": "dist/cli.js"
   },
   "type": "module",
   "files": [
@@ -29,20 +28,22 @@
   "keywords": [
     "cli",
     "claude-code",
-    "coding-helper",
+    "claude",
+    "provider",
+    "switcher",
     "ai",
     "minimax",
     "kimi",
     "zhipu",
     "glm"
   ],
-  "author": "Nicremo",
+  "author": "Fabian (Nicremo)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nicremo/coding-helper.git"
+    "url": "git+https://github.com/Nicremo/ccs.git"
   },
-  "homepage": "https://github.com/Nicremo/coding-helper",
+  "homepage": "https://github.com/Nicremo/ccs",
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",

@@ -32,7 +32,7 @@ function setupProgram(): Command {
   const program = new Command();
 
   program
-    .name('cchelper')
+    .name('ccs')
     .description(i18n.t('cli.title'))
     .version(getVersion(), '-v, --version', i18n.t('commands.version'))
     .helpOption('-h, --help', i18n.t('commands.help'));
@@ -220,16 +220,16 @@ function setupProgram(): Command {
     'after',
     `
 ${chalk.bold(i18n.t('cli.examples'))}:
-  ${chalk.gray('$ cchelper                    # Interactive wizard')}
-  ${chalk.gray('$ cchelper init               # Re-run setup')}
-  ${chalk.gray('$ cchelper provider           # Switch provider')}
-  ${chalk.gray('$ cchelper auth               # Configure API key')}
-  ${chalk.gray('$ cchelper auth revoke        # Remove API key')}
-  ${chalk.gray('$ cchelper apply              # Apply to Claude Code')}
-  ${chalk.gray('$ cchelper unload             # Remove from Claude Code')}
-  ${chalk.gray('$ cchelper status             # Show config')}
-  ${chalk.gray('$ cchelper doctor             # Health check')}
-  ${chalk.gray('$ cchelper lang set de_DE     # Switch to German')}
+  ${chalk.gray('$ ccs                         # Interactive wizard')}
+  ${chalk.gray('$ ccs init                   # Re-run setup')}
+  ${chalk.gray('$ ccs provider               # Switch provider')}
+  ${chalk.gray('$ ccs auth                 # Configure API key')}
+  ${chalk.gray('$ ccs auth revoke          # Remove API key')}
+  ${chalk.gray('$ ccs apply                # Apply to Claude Code')}
+  ${chalk.gray('$ ccs unload               # Remove from Claude Code')}
+  ${chalk.gray('$ ccs status               # Show config')}
+  ${chalk.gray('$ ccs doctor               # Health check')}
+  ${chalk.gray('$ ccs lang set de_DE       # Switch to German')}
 `,
   );
 

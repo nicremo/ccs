@@ -12,7 +12,7 @@ export interface AppConfig {
   api_key?: string;
 }
 
-const CONFIG_DIR = join(homedir(), '.cchelper');
+const CONFIG_DIR = join(homedir(), '.ccs');
 const CONFIG_PATH = join(CONFIG_DIR, 'config.yaml');
 
 export class ConfigManager {

@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { homedir } from 'node:os';
 
-const LOG_DIR = join(homedir(), '.cchelper');
+const LOG_DIR = join(homedir(), '.ccs');
 const LOG_FILE = join(LOG_DIR, 'debug.log');
 
 export const logger = {

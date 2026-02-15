@@ -39,7 +39,7 @@
     "goodbye_message": "Tschuess! Happy Coding!",
     "hint_navigate": "Pfeiltasten zum Navigieren",
     "hint_confirm": "Enter zum Bestaetigen",
-    "banner_subtitle": "Multi-Provider Setup fuer Claude Code",
+    "banner_subtitle": "Wechsle zwischen MiniMax, Kimi & GLM",
     "applying_config": "Konfiguration wird auf Claude Code angewendet...",
     "config_applied": "Konfiguration auf Claude Code angewendet!",
     "config_apply_failed": "Konfiguration konnte nicht angewendet werden.",

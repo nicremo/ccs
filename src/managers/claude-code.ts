@@ -44,7 +44,7 @@ export class ClaudeCodeManager {
   private constructor() {
     this.settingsPath = join(homedir(), '.claude', 'settings.json');
     this.configPath = join(homedir(), '.claude.json');
-    this.backupDir = join(homedir(), '.cchelper', 'backups');
+    this.backupDir = join(homedir(), '.ccs', 'backups');
   }
 
   static getInstance(): ClaudeCodeManager {

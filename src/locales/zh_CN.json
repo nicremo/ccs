@@ -39,7 +39,7 @@
     "goodbye_message": "再见！祝编码愉快！",
     "hint_navigate": "方向键选择",
     "hint_confirm": "回车确认",
-    "banner_subtitle": "Claude Code 多供应商配置工具",
+    "banner_subtitle": "在 MiniMax、Kimi 和 GLM 之间切换",
     "applying_config": "正在将配置应用到 Claude Code...",
     "config_applied": "配置已应用到 Claude Code！",
     "config_apply_failed": "配置应用失败。",

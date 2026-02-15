@@ -11,6 +11,19 @@ import { getAllProviders, getProvider } from '../providers/index.js';
 import type { Provider } from '../providers/index.js';
 import { logger } from '../utils/logger.js';
 
+// Custom colors - a modern violet/pink gradient theme
+const theme = {
+  primary: chalk.hex('#A855F7'),      // Purple
+  primaryBold: chalk.hex('#A855F7').bold,
+  secondary: chalk.hex('#EC4899'),    // Pink
+  accent: chalk.hex('#06B6D4'),       // Cyan
+  success: chalk.hex('#10B981'),      // Green
+  warning: chalk.hex('#F59E0B'),      // Amber
+  error: chalk.hex('#EF4444'),        // Red
+  dim: chalk.gray,
+  light: chalk.white,
+};
+
 const BOX_WIDTH = 63;
 
 function borderLine(l: string, r: string, fill: string, w: number): string {
@@ -33,9 +46,9 @@ export class Wizard {
   }
 
   private createBox(title: string): void {
-    console.log(chalk.cyan.bold('\n' + borderLine('╔', '╗', '═', BOX_WIDTH)));
-    console.log(chalk.cyan.bold(contentLine(title, '║', '║', BOX_WIDTH)));
-    console.log(chalk.cyan.bold(borderLine('╚', '╝', '═', BOX_WIDTH)));
+    console.log(theme.primaryBold('\n' + borderLine('╔', '╗', '═', BOX_WIDTH)));
+    console.log(theme.primaryBold(contentLine(title, '║', '║', BOX_WIDTH)));
+    console.log(theme.primaryBold(borderLine('╚', '╝', '═', BOX_WIDTH)));
     console.log('');
   }
 
@@ -56,20 +69,25 @@ export class Wizard {
 
   private printBanner(): void {
     const W = 65;
+    // Modern ASCII art with the new name
     const ascii = [
-      ' ▄▀▀ ▄▀▄ █▀▄ █ █▄ █ ▄▀    █▄█ ██▀ █   █▀▄ ██▀ █▀▄ ',
-      ' ▀▄▄ ▀▄▀ █▄▀ █ █ ▀█ ▀▄█   █ █ █▄▄ █▄▄ █▀  █▄▄ █▀▄ ',
+      '  ██████╗ ███████╗██╗   ██╗██╗  ██╗██╗   ██╗',
+      '  ██╔══██╗██╔════╝██║   ██║██║ ██╔╝╚██╗ ██╔╝',
+      '  ██║  ██║█████╗  ██║   ██║█████╔╝  ╚████╔╝ ',
+      '  ██║  ██║██╔══╝  ██║   ██║██╔═██╗   ╚██╔╝  ',
+      '  ██████╔╝███████╗╚██████╔╝██║  ██╗   ██║   ',
+      '  ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ',
     ];
     const lines = [
       borderLine('╔', '╗', '═', W),
       contentLine('', '║', '║', W),
       ...ascii.map(a => contentLine(a, '║', '║', W)),
       contentLine('', '║', '║', W),
-      contentLine('Coding Helper v1.0.0', '║', '║', W),
+      contentLine('Claude Code Provider Switcher', '║', '║', W),
       contentLine(i18n.t('wizard.banner_subtitle'), '║', '║', W),
       borderLine('╚', '╝', '═', W),
     ];
-    console.log(chalk.cyan.bold('\n' + lines.join('\n')));
+    console.log(theme.primaryBold('\n' + lines.join('\n')));
   }
 
   private resetScreen(): void {
@@ -80,7 +98,7 @@ export class Wizard {
   // ─── First-time setup ────────────────────────────────────────
   async runFirstTimeSetup(): Promise<void> {
     this.resetScreen();
-    console.log(chalk.cyan.bold('\n' + i18n.t('wizard.welcome')));
+    console.log(theme.primaryBold('\n' + i18n.t('wizard.welcome')));
     console.log(chalk.gray(i18n.t('wizard.privacy_note') + '\n'));
 
     await this.configLanguage();
@@ -420,7 +438,7 @@ export class Wizard {
     const cfg = configManager.get();
     const provider = cfg.provider ? getProvider(cfg.provider) : undefined;
 
-    console.log(chalk.cyan.bold('  Local Config (~/.cchelper):'));
+    console.log(theme.primaryBold('  Local Config (~/.ccs):'));
     console.log(
       chalk.gray('    ' + i18n.t('wizard.status_provider') + ': ') +
         (provider ? chalk.green(provider.name) : chalk.red(i18n.t('wizard.not_set'))),
@@ -439,7 +457,7 @@ export class Wizard {
     );
 
     console.log('');
-    console.log(chalk.yellow.bold('  Claude Code (~/.claude/settings.json):'));
+    console.log(theme.warning.bold('  Claude Code (~/.claude/settings.json):'));
     const detected = claudeCodeManager.detectCurrentConfig();
     if (detected.provider) {
       console.log(chalk.gray('    ' + i18n.t('wizard.status_provider') + ': ') + chalk.green(detected.provider.name));
