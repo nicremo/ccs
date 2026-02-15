@@ -1,6 +1,6 @@
 {
   "name": "@nicremo/ccs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Claude Code Provider Switcher - Configure MiniMax, Kimi, and GLM models for Claude Code",
   "main": "dist/cli.js",
   "bin": {
