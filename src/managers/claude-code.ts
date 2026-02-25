@@ -198,7 +198,28 @@ export class ClaudeCodeManager {
       newEnv[key] = value;
     }
 
-    this.saveSettings({ ...settings, env: newEnv });
+    // Also set the model property in settings.json (this is different from ANTHROPIC_MODEL env var)
+    // Map model ID to display name for the model setting
+    const modelSetting = this.mapModelToSetting(modelId, provider.id);
+
+    this.saveSettings({
+      ...settings,
+      env: newEnv,
+      model: modelSetting,
+    });
+  }
+
+  private mapModelToSetting(modelId: string, providerId: string): string {
+    // Map provider-specific model IDs to Claude Code model settings
+    if (providerId === 'claude') {
+      // For official Anthropic API, use the model ID directly or map to shorthand
+      if (modelId.includes('opus')) return 'opus';
+      if (modelId.includes('sonnet')) return 'sonnet';
+      if (modelId.includes('haiku')) return 'haiku';
+      return modelId;
+    }
+    // For third-party providers, use the model ID as-is
+    return modelId;
   }
 
   unloadProviderConfig(): void {
@@ -206,21 +227,24 @@ export class ClaudeCodeManager {
     this.createBackup();
 
     const settings = this.getSettings();
-    if (!settings.env) return;
+    if (!settings.env && !settings.model) return;
 
+    // Clean environment variables
     const cleanedEnv: Record<string, string | number> = {};
-    for (const [key, value] of Object.entries(settings.env)) {
-      if (!MANAGED_ENV_KEYS.includes(key)) {
-        cleanedEnv[key] = value;
+    if (settings.env) {
+      for (const [key, value] of Object.entries(settings.env)) {
+        if (!MANAGED_ENV_KEYS.includes(key)) {
+          cleanedEnv[key] = value;
+        }
       }
     }
 
-    const newSettings = { ...settings };
-    if (Object.keys(cleanedEnv).length === 0) {
-      delete newSettings.env;
-    } else {
+    const newSettings: ClaudeSettings = {};
+    if (Object.keys(cleanedEnv).length > 0) {
       newSettings.env = cleanedEnv;
     }
+    // Remove the model property to use Claude Code default
+    // (settings.model is set in settings.json and determines the default model)
 
     this.saveSettings(newSettings);
   }
