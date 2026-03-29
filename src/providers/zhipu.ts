@@ -3,7 +3,7 @@ import type { Provider } from './index.js';
 export const zhipuProvider: Provider = {
   id: 'zhipu',
   name: 'Z.AI / GLM',
-  description: 'Zhipu AI GLM Coding Plan',
+  description: 'Zhipu AI GLM-5.1 / GLM-5 Models',
   regions: [
     {
       id: 'global',
@@ -20,14 +20,26 @@ export const zhipuProvider: Provider = {
   ],
   models: [
     {
-      id: 'glm-5',
-      name: 'GLM-5',
+      id: 'glm-5.1',
+      name: 'GLM-5.1',
       default: true,
     },
+    {
+      id: 'glm-5-turbo',
+      name: 'GLM-5-Turbo (Coding Optimized)',
+    },
+    {
+      id: 'glm-5',
+      name: 'GLM-5',
+    },
   ],
-  getEnvOverrides(_model: string): Record<string, string> {
-    // GLM uses the default Anthropic model routing, no overrides needed
-    return {};
+  getEnvOverrides(model: string): Record<string, string> {
+    return {
+      ANTHROPIC_MODEL: model,
+      ANTHROPIC_DEFAULT_SONNET_MODEL: model,
+      ANTHROPIC_DEFAULT_OPUS_MODEL: model,
+      ANTHROPIC_DEFAULT_HAIKU_MODEL: model,
+    };
   },
   getValidateUrl(regionId: string): string {
     return regionId === 'global'

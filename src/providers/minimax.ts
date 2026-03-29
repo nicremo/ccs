@@ -3,7 +3,7 @@ import type { Provider } from './index.js';
 export const minimaxProvider: Provider = {
   id: 'minimax',
   name: 'MiniMax',
-  description: 'MiniMax M2.5 AI Model',
+  description: 'MiniMax M2.7 / M2.5 AI Models',
   regions: [
     {
       id: 'global',
@@ -20,9 +20,21 @@ export const minimaxProvider: Provider = {
   ],
   models: [
     {
-      id: 'MiniMax-M2.5',
-      name: 'MiniMax-M2.5',
+      id: 'MiniMax-M2.7',
+      name: 'MiniMax M2.7',
       default: true,
+    },
+    {
+      id: 'MiniMax-M2.7-highspeed',
+      name: 'MiniMax M2.7 Highspeed (~100 tps)',
+    },
+    {
+      id: 'MiniMax-M2.5-highspeed',
+      name: 'MiniMax M2.5 Highspeed (~100 tps)',
+    },
+    {
+      id: 'MiniMax-M2.5',
+      name: 'MiniMax M2.5',
     },
   ],
   getEnvOverrides(model: string): Record<string, string> {

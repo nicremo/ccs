@@ -4,9 +4,9 @@ A CLI tool to switch between different AI providers for Claude Code.
 
 ## Supported Providers
 
-- **MiniMax** - M2.5 model
+- **MiniMax** - M2.7, M2.7 Highspeed, M2.5 Highspeed, M2.5
 - **Kimi / Moonshot** - K2.5, K2 Thinking Turbo, K2 Turbo
-- **Z.AI / GLM** - GLM-5
+- **Z.AI / GLM** - GLM-5.1, GLM-5-Turbo, GLM-5
 
 ## Quick Start
 
