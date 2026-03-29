@@ -7,6 +7,8 @@ A CLI tool to switch between different AI providers for Claude Code.
 - **MiniMax** - M2.7, M2.7 Highspeed, M2.5 Highspeed, M2.5
 - **Kimi / Moonshot** - K2.5, K2 Thinking Turbo, K2 Turbo
 - **Z.AI / GLM** - GLM-5.1, GLM-5-Turbo, GLM-5
+- **DeepSeek** - Reasoner (V3.2 Thinking), Chat (V3.2)
+- **Qwen / DashScope** - Qwen 3.5 Plus, Qwen 3 Coder Plus, Qwen 3 Coder Next, Qwen 3 Max, Qwen 3.5 Flash
 
 ## Quick Start
 
