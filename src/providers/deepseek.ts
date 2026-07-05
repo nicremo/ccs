@@ -34,14 +34,16 @@ export const deepseekProvider: Provider = {
     },
   ],
   getEnvOverrides(model: string): Record<string, string> {
-    const fastModel = model.includes('[1m]') ? 'deepseek-v4-flash[1m]' : 'deepseek-v4-flash';
+    const fastModel = 'deepseek-v4-flash';
     return {
       ANTHROPIC_MODEL: model,
       ANTHROPIC_SMALL_FAST_MODEL: fastModel,
       ANTHROPIC_DEFAULT_SONNET_MODEL: model,
       ANTHROPIC_DEFAULT_OPUS_MODEL: model,
       ANTHROPIC_DEFAULT_HAIKU_MODEL: fastModel,
+      CLAUDE_CODE_SUBAGENT_MODEL: fastModel,
       CLAUDE_CODE_EFFORT_LEVEL: 'max',
+      CLAUDE_CODE_AUTO_COMPACT_WINDOW: model.includes('[1m]') ? '1000000' : '131072',
     };
   },
   getValidateHeaders(apiKey: string): Record<string, string> {

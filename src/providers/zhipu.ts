@@ -3,7 +3,7 @@ import type { Provider } from './index.js';
 export const zhipuProvider: Provider = {
   id: 'zhipu',
   name: 'Z.AI / GLM',
-  description: 'Z.AI GLM-4.7 / GLM-5 Models',
+  description: 'Z.AI GLM-5.2 / GLM-4.7 Models',
   regions: [
     {
       id: 'global',
@@ -20,19 +20,24 @@ export const zhipuProvider: Provider = {
   ],
   models: [
     {
-      id: 'GLM-4.7',
-      name: 'GLM-4.7',
+      id: 'glm-5.2[1m]',
+      name: 'GLM-5.2 (1M Context)',
       default: true,
       thinking: true,
-    },
-    {
-      id: 'GLM-4.5-Air',
-      name: 'GLM-4.5-Air',
     },
     {
       id: 'glm-5.2',
       name: 'GLM-5.2',
       thinking: true,
+    },
+    {
+      id: 'glm-4.7',
+      name: 'GLM-4.7',
+      thinking: true,
+    },
+    {
+      id: 'glm-4.5-air',
+      name: 'GLM-4.5-Air',
     },
     {
       id: 'glm-5.1',
@@ -53,7 +58,8 @@ export const zhipuProvider: Provider = {
       ANTHROPIC_MODEL: model,
       ANTHROPIC_DEFAULT_SONNET_MODEL: model,
       ANTHROPIC_DEFAULT_OPUS_MODEL: model,
-      ANTHROPIC_DEFAULT_HAIKU_MODEL: model === 'GLM-4.7' ? 'GLM-4.5-Air' : model,
+      ANTHROPIC_DEFAULT_HAIKU_MODEL: model.startsWith('glm-5.2') ? 'glm-4.7' : model,
+      CLAUDE_CODE_AUTO_COMPACT_WINDOW: model.includes('[1m]') ? '1000000' : '202752',
     };
   },
   getValidateUrl(regionId: string): string {

@@ -78,6 +78,8 @@ export const qwenProvider: Provider = {
       ANTHROPIC_DEFAULT_SONNET_MODEL: model,
       ANTHROPIC_DEFAULT_OPUS_MODEL: model,
       ANTHROPIC_DEFAULT_HAIKU_MODEL: model.startsWith('qwen3.') ? 'qwen3.6-flash' : 'qwen3-coder-next',
+      CLAUDE_CODE_SUBAGENT_MODEL: model,
+      CLAUDE_CODE_AUTO_COMPACT_WINDOW: model.includes('plus') || model.includes('max') ? '1000000' : '262144',
     };
   },
   getValidateUrl(regionId: string): string {

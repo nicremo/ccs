@@ -10,7 +10,7 @@ Provider data last refreshed: 2026-07-05.
 |---|---|---|---|
 | MiniMax | `MiniMax-M3[1m]` | `MiniMax-M3`, `MiniMax-M2.7`, `MiniMax-M2.7-highspeed`, `MiniMax-M2.5-highspeed`, `MiniMax-M2.5` | `api.minimax.io`, `api.minimaxi.com` |
 | Kimi / Moonshot | `kimi-k2.7-code` | `kimi-k2.6`, `kimi-k2.5`, `kimi-k2-thinking-turbo`, `kimi-k2-turbo-preview`, `kimi-k2-0905-preview` | `api.moonshot.ai` |
-| Z.AI / GLM | `GLM-4.7` | `GLM-4.5-Air`, `glm-5.2`, `glm-5.1`, `glm-5-turbo`, `glm-5` | `api.z.ai`, `open.bigmodel.cn` |
+| Z.AI / GLM | `glm-5.2[1m]` | `glm-5.2`, `glm-4.7`, `glm-4.5-air`, `glm-5.1`, `glm-5-turbo`, `glm-5` | `api.z.ai`, `open.bigmodel.cn` |
 | DeepSeek | `deepseek-v4-pro[1m]` | `deepseek-v4-flash[1m]`, `deepseek-v4-pro`, `deepseek-v4-flash` | `api.deepseek.com` |
 | Qwen / DashScope | `qwen3.7-plus` | `qwen3.6-plus`, `qwen3.7-max`, `qwen3.6-flash`, `qwen3.5-plus`, `qwen3-coder-plus`, `qwen3-coder-next`, `qwen3-max-2026-01-23` | Coding Plan, Token Plan, Pay-as-you-go |
 
@@ -68,7 +68,9 @@ Managed Claude Code environment keys include:
 - `ANTHROPIC_DEFAULT_HAIKU_MODEL`
 - `CLAUDE_CODE_SUBAGENT_MODEL`
 - `CLAUDE_CODE_EFFORT_LEVEL`
+- `CLAUDE_CODE_AUTO_COMPACT_WINDOW`
 - `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`
+- `ENABLE_TOOL_SEARCH`
 - `API_TIMEOUT_MS`
 
 Other existing environment keys in `~/.claude/settings.json` are preserved.

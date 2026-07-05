@@ -50,6 +50,8 @@ export const kimiProvider: Provider = {
       ANTHROPIC_DEFAULT_OPUS_MODEL: model,
       ANTHROPIC_DEFAULT_HAIKU_MODEL: model,
       CLAUDE_CODE_SUBAGENT_MODEL: model,
+      CLAUDE_CODE_AUTO_COMPACT_WINDOW: '262144',
+      ENABLE_TOOL_SEARCH: 'false',
     };
   },
   getValidateUrl(_regionId: string): string {

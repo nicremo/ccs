@@ -53,6 +53,7 @@ export const minimaxProvider: Provider = {
       ANTHROPIC_DEFAULT_SONNET_MODEL: model,
       ANTHROPIC_DEFAULT_OPUS_MODEL: model,
       ANTHROPIC_DEFAULT_HAIKU_MODEL: model,
+      CLAUDE_CODE_AUTO_COMPACT_WINDOW: model.includes('[1m]') ? '1000000' : '204800',
     };
   },
   getValidateHeaders(apiKey: string): Record<string, string> {

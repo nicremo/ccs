@@ -1,6 +1,6 @@
 {
   "name": "@nicremo/ccs",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Claude Code Provider Switcher - Configure MiniMax, Kimi, GLM, DeepSeek, and Qwen models for Claude Code",
   "main": "dist/cli.js",
   "bin": {
