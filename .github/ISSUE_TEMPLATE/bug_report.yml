@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a reproducible CCS bug
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Do not include API keys, tokens, `.env` files, or full Claude Code settings.
+  - type: input
+    id: version
+    attributes:
+      label: CCS version
+      placeholder: "ccs --version"
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider
+      options:
+        - MiniMax
+        - Kimi / Moonshot
+        - Z.AI / GLM
+        - DeepSeek
+        - Qwen / DashScope
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Provide the shortest sequence that reproduces the issue.
+      placeholder: |
+        1. Run ...
+        2. Select ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Redact keys, tokens, paths you consider private, and account data.
+      render: shell

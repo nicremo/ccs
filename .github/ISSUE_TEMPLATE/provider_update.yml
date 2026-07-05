@@ -1,0 +1,36 @@
+name: Provider update
+description: Request a provider model, endpoint, or validation update
+title: "provider: "
+labels:
+  - provider
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      placeholder: "MiniMax, Kimi, Z.AI, DeepSeek, Qwen, or new provider"
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Official documentation URL
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Requested change
+      placeholder: |
+        New default model:
+        New base URL:
+        New validation endpoint:
+        New required headers:
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Do not include API keys or private account data.
