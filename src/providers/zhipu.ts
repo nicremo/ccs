@@ -3,7 +3,7 @@ import type { Provider } from './index.js';
 export const zhipuProvider: Provider = {
   id: 'zhipu',
   name: 'Z.AI / GLM',
-  description: 'Zhipu AI GLM-5.1 / GLM-5 Models',
+  description: 'Z.AI GLM-4.7 / GLM-5 Models',
   regions: [
     {
       id: 'global',
@@ -20,9 +20,24 @@ export const zhipuProvider: Provider = {
   ],
   models: [
     {
+      id: 'GLM-4.7',
+      name: 'GLM-4.7',
+      default: true,
+      thinking: true,
+    },
+    {
+      id: 'GLM-4.5-Air',
+      name: 'GLM-4.5-Air',
+    },
+    {
+      id: 'glm-5.2',
+      name: 'GLM-5.2',
+      thinking: true,
+    },
+    {
       id: 'glm-5.1',
       name: 'GLM-5.1',
-      default: true,
+      thinking: true,
     },
     {
       id: 'glm-5-turbo',
@@ -38,7 +53,7 @@ export const zhipuProvider: Provider = {
       ANTHROPIC_MODEL: model,
       ANTHROPIC_DEFAULT_SONNET_MODEL: model,
       ANTHROPIC_DEFAULT_OPUS_MODEL: model,
-      ANTHROPIC_DEFAULT_HAIKU_MODEL: model,
+      ANTHROPIC_DEFAULT_HAIKU_MODEL: model === 'GLM-4.7' ? 'GLM-4.5-Air' : model,
     };
   },
   getValidateUrl(regionId: string): string {

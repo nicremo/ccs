@@ -20,6 +20,8 @@ export interface Provider {
   models: ProviderModel[];
   // Extra env vars to set for this provider (beyond ANTHROPIC_BASE_URL/AUTH_TOKEN)
   getEnvOverrides(model: string): Record<string, string>;
+  // Extra or replacement headers for model-list validation requests
+  getValidateHeaders?: (apiKey: string) => Record<string, string>;
   // URL to validate the API key
   getValidateUrl(regionId: string): string;
 }

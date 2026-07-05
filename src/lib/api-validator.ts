@@ -7,6 +7,13 @@ export interface ValidationResult {
   message?: string;
 }
 
+export function buildValidationHeaders(apiKey: string, provider: Provider): Record<string, string> {
+  return {
+    ...(provider.getValidateHeaders?.(apiKey) || { Authorization: `Bearer ${apiKey}` }),
+    'Content-Type': 'application/json',
+  };
+}
+
 export async function validateApiKey(
   apiKey: string,
   provider: Provider,
@@ -20,10 +27,7 @@ export async function validateApiKey(
 
     const response = await fetch(url, {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
+      headers: buildValidationHeaders(apiKey, provider),
       signal: controller.signal,
     });
 

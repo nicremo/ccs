@@ -3,7 +3,7 @@ import type { Provider } from './index.js';
 export const minimaxProvider: Provider = {
   id: 'minimax',
   name: 'MiniMax',
-  description: 'MiniMax M2.7 / M2.5 AI Models',
+  description: 'MiniMax M3 / M2.7 AI Models',
   regions: [
     {
       id: 'global',
@@ -20,9 +20,18 @@ export const minimaxProvider: Provider = {
   ],
   models: [
     {
+      id: 'MiniMax-M3[1m]',
+      name: 'MiniMax M3 (1M Context)',
+      default: true,
+    },
+    {
+      id: 'MiniMax-M3',
+      name: 'MiniMax M3',
+      thinking: true,
+    },
+    {
       id: 'MiniMax-M2.7',
       name: 'MiniMax M2.7',
-      default: true,
     },
     {
       id: 'MiniMax-M2.7-highspeed',
@@ -46,8 +55,12 @@ export const minimaxProvider: Provider = {
       ANTHROPIC_DEFAULT_HAIKU_MODEL: model,
     };
   },
+  getValidateHeaders(apiKey: string): Record<string, string> {
+    return {
+      'X-Api-Key': apiKey,
+    };
+  },
   getValidateUrl(regionId: string): string {
-    // MiniMax uses the base URL itself for validation
     return regionId === 'global'
       ? 'https://api.minimax.io/anthropic/v1/models'
       : 'https://api.minimaxi.com/anthropic/v1/models';

@@ -3,7 +3,7 @@ import type { Provider } from './index.js';
 export const kimiProvider: Provider = {
   id: 'kimi',
   name: 'Kimi / Moonshot',
-  description: 'Moonshot AI Kimi K2 Models',
+  description: 'Moonshot AI Kimi K2.7 Code Models',
   regions: [
     {
       id: 'global',
@@ -14,9 +14,20 @@ export const kimiProvider: Provider = {
   ],
   models: [
     {
-      id: 'kimi-k2.5',
-      name: 'Kimi K2.5 (Latest)',
+      id: 'kimi-k2.7-code',
+      name: 'Kimi K2.7 Code',
       default: true,
+      thinking: true,
+    },
+    {
+      id: 'kimi-k2.6',
+      name: 'Kimi K2.6',
+      thinking: true,
+    },
+    {
+      id: 'kimi-k2.5',
+      name: 'Kimi K2.5',
+      thinking: true,
     },
     {
       id: 'kimi-k2-thinking-turbo',
