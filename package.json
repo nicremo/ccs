@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "tsc && cp -r src/locales dist/",
-    "test": "tsx --test tests/**/*.test.ts",
+    "test": "tsx --test tests/*.test.ts",
     "dev": "tsx watch src/cli.ts",
     "start": "node dist/cli.js",
     "clean": "rm -rf dist",
