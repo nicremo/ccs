@@ -9,6 +9,7 @@ test('providers expose current coding defaults', () => {
   assert.equal(getProvider('zhipu')?.models.find(model => model.default)?.id, 'glm-5.2[1m]');
   assert.equal(getProvider('deepseek')?.models.find(model => model.default)?.id, 'deepseek-v4-pro[1m]');
   assert.equal(getProvider('qwen')?.models.find(model => model.default)?.id, 'qwen3.7-plus');
+  assert.equal(getProvider('teapotrouter')?.models.find(model => model.default)?.id, 'claude-sonnet-5-5');
 });
 
 test('providers expose latest fallback and high speed models', () => {
@@ -17,6 +18,7 @@ test('providers expose latest fallback and high speed models', () => {
   assert.ok(getProvider('qwen')?.models.some(model => model.id === 'qwen3-coder-plus'));
   assert.ok(getProvider('kimi')?.models.some(model => model.id === 'kimi-k2.6'));
   assert.ok(getProvider('minimax')?.models.some(model => model.id === 'MiniMax-M2.7-highspeed'));
+  assert.ok(getProvider('teapotrouter')?.models.some(model => model.id === 'claude-haiku-4-5'));
 });
 
 test('validation headers match provider model list APIs', () => {
@@ -31,6 +33,11 @@ test('validation headers match provider model list APIs', () => {
   });
 
   assert.deepEqual(buildValidationHeaders('sk-test', getProvider('kimi')!), {
+    Authorization: 'Bearer sk-test',
+    'Content-Type': 'application/json',
+  });
+
+  assert.deepEqual(buildValidationHeaders('sk-test', getProvider('teapotrouter')!), {
     Authorization: 'Bearer sk-test',
     'Content-Type': 'application/json',
   });
