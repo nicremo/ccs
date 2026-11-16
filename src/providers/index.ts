@@ -31,8 +31,9 @@ import { minimaxProvider } from './minimax.js';
 import { kimiProvider } from './kimi.js';
 import { deepseekProvider } from './deepseek.js';
 import { qwenProvider } from './qwen.js';
+import { teapotRouterProvider } from './teapotrouter.js';
 
-const providers: Provider[] = [zhipuProvider, minimaxProvider, kimiProvider, deepseekProvider, qwenProvider];
+const providers: Provider[] = [zhipuProvider, minimaxProvider, kimiProvider, deepseekProvider, qwenProvider, teapotRouterProvider];
 
 export function getProvider(id: string): Provider | undefined {
   return providers.find(p => p.id === id);
