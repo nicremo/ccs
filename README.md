@@ -9,11 +9,11 @@
 
 **CCS is a Claude Code provider switcher for Anthropic-compatible coding models.**
 
-It configures Claude Code for MiniMax, Kimi, Z.AI GLM, DeepSeek, and Qwen without manually editing `~/.claude/settings.json`.
+It configures Claude Code for MiniMax, Kimi, Z.AI GLM, DeepSeek, Qwen, and TeapotRouter without manually editing `~/.claude/settings.json`.
 
 Keywords: Claude Code provider switcher, Claude Code alternative models, Anthropic-compatible API, MiniMax M3, Kimi K2.7 Code, GLM-5.2, DeepSeek V4, Qwen 3.7, DashScope, terminal CLI.
 
-Provider data last refreshed: 2026-07-05.
+Provider data last refreshed: 2026-11-16.
 
 ## Why CCS
 
@@ -37,6 +37,7 @@ CCS keeps that workflow explicit and reversible:
 | Z.AI / GLM | `glm-5.2[1m]` | `glm-5.2`, `glm-4.7`, `glm-4.5-air`, `glm-5.1`, `glm-5-turbo`, `glm-5` | `api.z.ai`, `open.bigmodel.cn` |
 | DeepSeek | `deepseek-v4-pro[1m]` | `deepseek-v4-flash[1m]`, `deepseek-v4-pro`, `deepseek-v4-flash` | `api.deepseek.com` |
 | Qwen / DashScope | `qwen3.7-plus` | `qwen3.6-plus`, `qwen3.7-max`, `qwen3.6-flash`, `qwen3.5-plus`, `qwen3-coder-plus`, `qwen3-coder-next`, `qwen3-max-2026-01-23` | Coding Plan, Token Plan, Pay-as-you-go |
+| TeapotRouter | `claude-sonnet-5-5` | `claude-opus-5-5`, `claude-fable-5-2`, `claude-haiku-4-5` | `api.teapotrouter.com` |
 
 ## Install
 

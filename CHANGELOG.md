@@ -2,6 +2,10 @@
 
 All notable changes to CCS are documented here.
 
+## Unreleased
+
+- Added the TeapotRouter provider: Claude and GPT model families via the Anthropic-compatible endpoint `api.teapotrouter.com`, with `claude-sonnet-5-5` as the default model and `claude-haiku-4-5` as the fast/fallback model. Key validation uses `Authorization: Bearer` against `https://api.teapotrouter.com/v1/models`.
+
 ## 1.4.0
 
 - Expanded the open-source project structure with license, contributing, security, code of conduct, and GitHub templates.
